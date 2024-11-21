@@ -80,6 +80,9 @@ export class Pet {
   @Prop({ type: Boolean, default: false })
   isSpayedOrNeutered: boolean;
 
+  @Prop({ type: String, required: false,default:null })
+  petAiId: string;
+
   _id?: Types.ObjectId;
 }
 

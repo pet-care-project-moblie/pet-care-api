@@ -148,4 +148,12 @@ export class PetCreateDto {
   @IsOptional()
   @IsBoolean()
   isSpayedOrNeutered?: boolean;
+
+  @ApiProperty({
+    description: 'HEE',
+    example: '12523525',
+  })
+  @IsNotEmpty()
+  @IsString()
+  petAiId: string;
 }

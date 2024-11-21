@@ -10,13 +10,15 @@ import { CreatePetUsecase } from './usecase/create.usecase';
 import { ProfileModule } from '../profile/profile.module';
 import { SwipeModule } from '../swipes/swipes.module';
 import { SearchPetUsecase } from './usecase/search.usecase';
+import { GetByAiIdPetUsecase } from './usecase/getByAiId.usecase';
 
 const usecases = [
   GetPetPaginationUsecase,
   UpdatePetUsecase,
   GetByIdPetUsecase,
   CreatePetUsecase,
-  SearchPetUsecase
+  SearchPetUsecase,
+  GetByAiIdPetUsecase
 ];
 
 @Module({

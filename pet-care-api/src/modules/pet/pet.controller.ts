@@ -24,6 +24,7 @@ import { PetCreateDto } from './dto/pet-create.dto';
 import { SearchPetUsecase } from './usecase/search.usecase';
 import PetSearchDto from './dto/pet-search.dto';
 import { Types } from 'mongoose';
+import { GetByAiIdPetUsecase } from './usecase/getByAiId.usecase';
 
 @ApiTags('Pet')
 @ApiBearerAuth()
@@ -36,6 +37,7 @@ export class PetController {
     private readonly getByIdPetUsecase: GetByIdPetUsecase,
     private readonly createPetUsecase: CreatePetUsecase,
     private readonly searchPetUsecase: SearchPetUsecase,
+    private readonly getByAiIdPetUsecase: GetByAiIdPetUsecase,
   ) {}
 
   @Post('search')
@@ -75,6 +77,11 @@ export class PetController {
   @Get(':id')
   public async getPetById(@Param('id') id: Types.ObjectId): Promise<any> {
     return this.getByIdPetUsecase.execute(id);
+  }
+
+  @Get('/ai-id/:id')
+  public async getPetByAiId(@Param('id') id: string): Promise<any> {
+    return this.getByAiIdPetUsecase.execute(id);
   }
 
   // @Put('self')

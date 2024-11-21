@@ -30,6 +30,10 @@ export class PetService {
     return this.petModel.findById(id).lean();
   }
 
+  public async getPetByAiId(petAiId: string): Promise<PetDocument> {
+    return this.petModel.findOne({ petAiId }).lean();
+  }
+
   public async getPetByProfileId(profileId: string): Promise<PetDocument> {
     return this.petModel.findOne({ _profileId: profileId }).lean();
   }
